@@ -50,7 +50,7 @@ $( document ).ready(function() {
       $("#malert").show();
       setTimeout(function() { 
         $("#malert").hide();
-      }, 2000);
+      }, 1500);
 
       $(this).css("background-color", "white");
     }

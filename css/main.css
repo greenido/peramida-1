@@ -18,10 +18,28 @@ input {
    padding: 1em; 
 }
 .level4 {
-   background: blue;
+   background: rgba(0, 0, 255, 0.38);
    padding: 1em; 
 }
 
 #malert {
    display: none;
 }
+
+i {
+  font-size: 3rem; 
+}
+.style3 {
+  color: #E33100;
+  text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #E33100,0 0 30px #E33100,0 0 40px #E33100,0 0 50px #E33100,0 0 75px #E33100; 
+}
+
+.style13 {
+  background: dodgerblue;
+  padding: .07em .25em;
+  border-radius: 50%; }
+  .style13:hover {
+    color: #fff;
+    text-shadow: 25px 0 25px #fff, -25px 0 25px #fff, 0 40px 45px #fff, 0 -40px 45px #fff;
+    transition: all .4s ease-in-out; 
+ }
