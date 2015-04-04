@@ -1,16 +1,31 @@
 $(document).foundation();
 
+$('[data-slider]').on('change.fndtn.slider', function(){
+  // do something when the value changes
+  var newLevel = $('#s-level').attr('data-slider');
+  if ( !isNaN(newLevel)) {
+    localStorage.setItem("peramid-level", newLevel);  
+    newNumbers();
+    cleanAll();
+  }
+  else {
+    console.warn("Got newLevel: "+ newLevel + " something is not good dude!");
+  }
+});
+
 //
 function newNumbers() {
   var curGameLevel = Number(localStorage.getItem("peramid-level"));
   if (curGameLevel > 0) {
     curGameLevel += 1;
     $("#glevel").text(" - " + curGameLevel);
-    localStorage.setItem("peramid-level", (curGameLevel) ); 
-    curGameLevel = curGameLevel * 10;
+    localStorage.setItem("peramid-level", ""+curGameLevel ); 
+    $('slider').foundation('slider', 'set_value', curGameLevel);
+    curGameLevel = curGameLevel * 6;
   }
   else {
     localStorage.setItem("peramid-level", "1");  
+    $('slider').foundation('slider', 'set_value', 1);
     curGameLevel = 10;
   }
   for (var i = 1; i < 5; i++) {
