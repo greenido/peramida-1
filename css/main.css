@@ -26,6 +26,12 @@ input {
    display: none;
 }
 
+.tup {
+   display: none;
+}
+.img-t-up {
+   border-radius: 10em;
+}
 i {
   font-size: 3rem; 
 }

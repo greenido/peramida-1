@@ -1,15 +1,33 @@
 $(document).foundation();
 
 //
-// start the party 
-//
-$( document ).ready(function() {
-  
-  // start with random numbers at the bottom
+function newNumbers() {
   for (var i = 1; i < 5; i++) {
     var tmpNo = Math.floor((Math.random() * 10) + 1);
     $("#l1-"+i).val(tmpNo);
   };
+}
+
+//
+function cleanAll() {
+ for (var i = 1; i < 4; i++) {
+    var tmpNo = Math.floor((Math.random() * 10) + 1);
+    $("#l2-"+i).val("");
+    if (i < 3) {
+      $("#l3-"+i).val("");
+    }
+  }
+  $("#l4-1").val("");
+}
+
+
+//
+// start the party 
+//
+$( document ).ready(function() {
+  
+  // Start with random numbers at the bottom
+  newNumbers();
 
   // lets have only numners as answers
   $("input").keydown(function (e) {
@@ -27,8 +45,6 @@ $( document ).ready(function() {
         e.preventDefault();
     }
   });
-
-
 
   // calculate if it's the correct answer
   $("input").on("blur", function(){
@@ -53,6 +69,17 @@ $( document ).ready(function() {
       }, 1500);
 
       $(this).css("background-color", "white");
+
+      // Are we done with this peramid?
+      if (curLevel === 4) {
+        $(".tup").show();
+        setTimeout(function() { 
+          $(".tup").hide();
+          cleanAll();
+          newNumbers();
+        }, 1500);
+      }
+
     }
     else {
        $(this).css("background-color", "red");
