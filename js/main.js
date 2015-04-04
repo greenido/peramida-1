@@ -2,10 +2,23 @@ $(document).foundation();
 
 //
 function newNumbers() {
+  var curGameLevel = Number(localStorage.getItem("peramid-level"));
+  if (curGameLevel > 0) {
+    curGameLevel += 1;
+    $("#glevel").text(" - " + curGameLevel);
+    localStorage.setItem("peramid-level", (curGameLevel) ); 
+    curGameLevel = curGameLevel * 10;
+  }
+  else {
+    localStorage.setItem("peramid-level", "1");  
+    curGameLevel = 10;
+  }
   for (var i = 1; i < 5; i++) {
-    var tmpNo = Math.floor((Math.random() * 10) + 1);
+    var tmpNo = Math.floor((Math.random() * curGameLevel) + 1);
     $("#l1-"+i).val(tmpNo);
   };
+
+  console.log("== curGameLevel: "+ curGameLevel);
 }
 
 //
