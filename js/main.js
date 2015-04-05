@@ -1,8 +1,10 @@
+
 $(document).foundation();
 
 $('[data-slider]').on('change.fndtn.slider', function(){
-  // do something when the value changes
+  // When level change - clean and rebuild the peramida
   var newLevel = $('#s-level').attr('data-slider');
+  var nLevel = $('#s-level').attr('level');
   if ( !isNaN(newLevel)) {
     localStorage.setItem("peramid-level", newLevel);  
     newNumbers();
@@ -19,8 +21,10 @@ function newNumbers() {
   if (curGameLevel > 0) {
     curGameLevel += 1;
     $("#glevel").text(" - " + curGameLevel);
-    localStorage.setItem("peramid-level", ""+curGameLevel ); 
+    localStorage.setItem("peramid-level", curGameLevel ); 
     $('slider').foundation('slider', 'set_value', curGameLevel);
+
+    $('#s-level').attr('level', curGameLevel);
     curGameLevel = curGameLevel * 6;
   }
   else {
@@ -53,7 +57,10 @@ function cleanAll() {
 // start the party 
 //
 $( document ).ready(function() {
-  
+  $('[data-slider]').on('change', function() {
+      console.log(this, 'has changed!');
+      $(this).css('background-color', 'red');
+  });
   // Start with random numbers at the bottom
   newNumbers();
 
@@ -100,12 +107,21 @@ $( document ).ready(function() {
 
       // Are we done with this peramid?
       if (curLevel === 4) {
-        $(".tup").show();
-        setTimeout(function() { 
-          $(".tup").hide();
-          cleanAll();
-          newNumbers();
-        }, 1500);
+        var notEmptyFields = 0;
+        $('input').each(function() {
+          if ($(this).val() != "") {
+            notEmptyFields++;
+          }    
+        });
+        if (notEmptyFields > 9) {
+          $(".tup").show();
+          setTimeout(function() { 
+            $(".tup").hide();
+            cleanAll();
+            newNumbers();
+          }, 1500);  
+        }
+        
       }
 
     }
