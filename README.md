@@ -3,9 +3,8 @@ Peramida
 
 A web app to practice elemtry math.
 
-* Live Version: todo.
-* More details: todo.
-
+* Live Version: http://bit.ly/peramida
+* More details: todo - blog.
 
 Main Goal
 =========
