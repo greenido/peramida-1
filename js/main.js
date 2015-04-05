@@ -132,6 +132,11 @@ $( document ).ready(function() {
     }
   });
 
+  $("#newgame").click(function() {
+    $('#rusure').foundation('reveal', 'close');
+    newNumbers();
+    cleanAll(); 
+  });
 
   
 });
