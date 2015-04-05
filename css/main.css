@@ -32,13 +32,13 @@ input {
 .save-user-alert  {
  display: none;  
 }
+
 .img-t-up {
    border-radius: 10em;
 }
-i {
-  font-size: 3rem; 
-}
+
 .style3 {
+  font-size: 3rem; 
   color: #E33100;
   text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #E33100,0 0 30px #E33100,0 0 40px #E33100,0 0 50px #E33100,0 0 75px #E33100; 
 }
