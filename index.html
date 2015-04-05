@@ -9,6 +9,7 @@
 
   <title>Peramida!</title>
   <link rel="stylesheet" href="css/foundation.css" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css" />
   
@@ -124,18 +125,19 @@
 
   <div class="row">
     <div class="small-10 medium-11 columns">
-      <h5>Level</h5>
-      <div id="s-level" class="range-slider round" data-slider data-options="start: 1; end: 60; initial: 1; display_selector: #sliderOutput3;">
-        <span class="range-slider-handle" role="slider" tabindex="0"></span>
-        <span class="range-slider-active-segment"></span>
-      </div>
-    </div>
-    <div class="small-2 medium-1 columns">
-      <span id="sliderOutput3"></span>
-    </div>
+      <p>
+        <label for="amount">Level:</label>
+        <input type="text" id="level" readonly style="border:0; color:#f6931f; font-weight:bold;">
+      </p>
+      <div id="slider-range-max"></div>
+
+
+    </div>  
   </div>
 
   <script src="js/vendor/jquery.js"></script>
+   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
   <script src="js/foundation.min.js"></script>
   <script src="js/foundation/foundation.topbar.js"></script>
   <script src="js/foundation/foundation.slider.js"></script>

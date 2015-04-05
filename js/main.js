@@ -1,20 +1,6 @@
 
 $(document).foundation();
 
-$('[data-slider]').on('change.fndtn.slider', function(){
-  // When level change - clean and rebuild the peramida
-  var newLevel = $('#s-level').attr('data-slider');
-  var nLevel = $('#s-level').attr('level');
-  if ( !isNaN(newLevel)) {
-    localStorage.setItem("peramid-level", newLevel);  
-    newNumbers();
-    cleanAll();
-  }
-  else {
-    console.warn("Got newLevel: "+ newLevel + " something is not good dude!");
-  }
-});
-
 //
 function newNumbers() {
   var curGameLevel = Number(localStorage.getItem("peramid-level"));
@@ -22,14 +8,14 @@ function newNumbers() {
     curGameLevel += 1;
     $("#glevel").text(" - " + curGameLevel);
     localStorage.setItem("peramid-level", curGameLevel ); 
-    $('slider').foundation('slider', 'set_value', curGameLevel);
-
+    $( "#level" ).val( curGameLevel ); //$( "#slider-range-max" ).slider( "value" )
+    $( "#slider-range-max" ).slider( {value: curGameLevel} ) ;
     $('#s-level').attr('level', curGameLevel);
     curGameLevel = curGameLevel * 6;
   }
   else {
-    localStorage.setItem("peramid-level", "1");  
-    $('slider').foundation('slider', 'set_value', 1);
+    localStorage.setItem("peramid-level", "1");      
+    $( "#level" ).val( 1 );
     curGameLevel = 10;
   }
   for (var i = 1; i < 5; i++) {
@@ -57,10 +43,26 @@ function cleanAll() {
 // start the party 
 //
 $( document ).ready(function() {
-  $('[data-slider]').on('change', function() {
-      console.log(this, 'has changed!');
-      $(this).css('background-color', 'red');
+  $( "#slider-range-max" ).slider({
+    range: "min",
+    min: 1,
+    max: 50,
+    value: 1,
+    slide: function( event, ui ) {
+      var newLevel = ui.value;
+      $( "#level" ).val( newLevel );
+      if ( !isNaN(newLevel)) {
+          localStorage.setItem("peramid-level", newLevel);  
+          newNumbers();
+          cleanAll();
+        }
+        else {
+          console.warn("Got newLevel: "+ newLevel + " something is not good dude!");
+        }
+    }
   });
+  $( "#level" ).val( $( "#slider-range-max" ).slider( "value" ) );
+
   // Start with random numbers at the bottom
   newNumbers();
 
