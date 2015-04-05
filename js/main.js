@@ -14,7 +14,8 @@ function newNumbers() {
     curGameLevel = curGameLevel * 6;
   }
   else {
-    localStorage.setItem("peramid-level", "1");      
+    localStorage.setItem("peramid-level", "1");   
+     $("#glevel").text(" - 1");   
     $( "#level" ).val( 1 );
     curGameLevel = 10;
   }
@@ -150,7 +151,7 @@ $( document ).ready(function() {
 
   $("#newgame").click(function() {
     $('#rusure').foundation('reveal', 'close');
-    localStorage.setItem("peramid-level", 1);  
+    localStorage.setItem("peramid-level", 0);  
     newNumbers();
     cleanAll(); 
   });
