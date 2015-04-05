@@ -29,6 +29,9 @@ input {
 .tup {
    display: none;
 }
+.save-user-alert  {
+ display: none;  
+}
 .img-t-up {
    border-radius: 10em;
 }
@@ -38,6 +41,14 @@ i {
 .style3 {
   color: #E33100;
   text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #E33100,0 0 30px #E33100,0 0 40px #E33100,0 0 50px #E33100,0 0 75px #E33100; 
+}
+
+.applogo {
+  padding-left: 0.3em;
+  padding-bottom: 0.2em;
+}
+#save-username {
+  margin-left: -2em;
 }
 
 .style13 {

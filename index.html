@@ -16,54 +16,63 @@
   <script src="js/vendor/modernizr.js"></script>
 </head>
 <body>
-  <nav class="top-bar" data-topbar role="navigation">
-    <ul class="title-area">
-      <li class="name">
-        <h1>
-          <img src="img/pyramid-small.png" alt="web app logo">
-        </h1>
-      </li>
-      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-      <li class="toggle-topbar menu-icon">
-        <a href="#">
-          <span>Menu</span>
-        </a>
-      </li>
-    </ul>
+  <div class="row">
+    <div class="large-10 columns">
+      <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <h1>
+              <img src="img/pyramid-small.png" class="applogo" alt="web app logo">
+            </h1>
+          </li>
+          <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+          <li class="toggle-topbar menu-icon">
+            <a href="#">
+              <span>Menu</span>
+            </a>
+          </li>
+        </ul>
 
-    <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="right">
-        <li class="">
-          <a href="#" data-reveal-id="rusure">New</a>
-        </li>
-        <li class="">
-          <a href="https://www.khanacademy.org/math/early-math/cc-early-math-add-sub-topic" target="_blank">Learn!</a>
-        </li>
-        <li>
-          <a href="mailto:?Subject=Check%20This%20To%20Parctice%20Math&body=Hey!%20You%20might%20like:%20http:bit.ly/peramida">Share</a>
-        </li>
-      </ul>
+        <section class="top-bar-section">
+          <!-- Right Nav Section -->
+          <ul class="right">
+            <li class="">
+              <a href="#" data-reveal-id="rusure">New</a>
+            </li>
+            <li class="">
+              <a href="https://www.khanacademy.org/math/early-math/cc-early-math-add-sub-topic" target="_blank">Learn!</a>
+            </li>
+            <li>
+              <a href="mailto:?Subject=Check%20This%20To%20Parctice%20Math&body=Hey!%20You%20might%20like:%20http:bit.ly/peramida">Share</a>
+            </li>
+          </ul>
 
-      <ul class="left">
-        <li> <a href="#">For:</a></li>
-        <li class="has-form">
-          <div class="large-8 small-8 columns">
+          <ul class="left">
+            <li> <a href="#">For:</a></li>
+            <li class="has-form">
+              <div class="large-8 small-8 columns">
+                <input id="username" type="text" placeholder="Your Name">
+              </div>
+              <div class="large-4 small-4 columns">
+                <a href="#" id="save-username" class="alert button expand">Save</a>
+              </div>
+             
+            </li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+  </div>
 
-            <input id="username" type="text" placeholder="Your Name">
-          </div>
-          <div class="large-4 small-4 columns">
-            <a href="#" id="save-username" class="alert button expand">Save</a>
-          </div>
-        </li>
-      </ul>
-      
-    </section>
-  </nav>
 
   <div class="row">
     <div class="large-10 columns">
       <div class="panel">
+        <div data-alert class="save-user-alert alert-box warning round large-2 large-offset-2 small-2 small-offset-2 columns">
+            Saved!
+            <a href="#" class="close">&times;</a>
+        </div>
+
         <h1><i class="fi-heart style3"></i> Peramida! <span id="glevel"></span></h1>
         <div class="row level4">
           <div class="large-2 large-offset-3 small-2 small-offset-3 columns">
@@ -119,17 +128,17 @@
   </div>
 
   <div class="row">
+    <div class="tup large-8 small-8 large-offset-1 small-offset-1 columns">
+      <img src="img/t-up.gif" class="img-t-up" alt="Tumb up man!">
+    </div>
+  </div>
+
+  <div class="row">
     <div id="malert" class="small-10 large-10 columns">
       <div  data-alert class="alert-box success radius">
         <center>Good Job!!</center>
         <a href="#" class="close">&times;</a>
       </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="tup large-8 small-8 large-offset-1 small-offset-1 columns">
-      <img src="img/t-up.gif" class="img-t-up" alt="Tumb up man!">
     </div>
   </div>
 
@@ -164,6 +173,7 @@
   <script src="js/foundation.min.js"></script>
   <script src="js/foundation/foundation.topbar.js"></script>
   <script src="js/foundation/foundation.slider.js"></script>
+  <script src="js/foundation/foundation.alert.js"></script>
   <script src="js/main.js"></script>
 
   <script>

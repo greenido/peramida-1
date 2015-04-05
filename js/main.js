@@ -50,7 +50,7 @@ $( document ).ready(function() {
   if (cUser != null && cUser != undefined) {
     $("#username").val(cUser);
   }
-  
+
   // slides to pick levels
   $( "#slider-range-max" ).slider({
     range: "min",
@@ -140,10 +140,8 @@ $( document ).ready(function() {
             cleanAll();
             newNumbers();
           }, 1500);  
-        }
-        
+        }    
       }
-
     }
     else {
        $(this).css("background-color", "red");
@@ -157,8 +155,15 @@ $( document ).ready(function() {
     cleanAll(); 
   });
 
+  // save our user locally for the future
   $("#save-username").click(function() {
-    localStorage.setItem("peramid-user", $("#username").val());  
+    localStorage.setItem("peramid-user", $("#username").val() );  
+    $(".save-user-alert").show();
+    setTimeout(function() { 
+      $(".save-user-alert").hide();
+      //$(".alert-box a.close").trigger("click.fndtn.alert");
+    }, 1000);  
+    
   })
 
   //Firebase stuff - to save the progress
@@ -166,8 +171,12 @@ $( document ).ready(function() {
   function saveAchivment() {
     var endTime = new Date().getTime();
     var cLevel = $( "#level" ).val();
+    var cUser  = $("#username").val();
+    if (cUser == null || cUser == undefined || cUser == "") {
+      cUser = "unKnown";
+    }
     myFirebaseRef.push({
-      user: "kids - " + $("#username").val(),
+      user: cUser,
       startTime: startTime,
       endTime: endTime,
       gameTime: (endTime - startTime)/1000,
