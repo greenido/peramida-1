@@ -150,7 +150,7 @@ $( document ).ready(function() {
 
   $("#newgame").click(function() {
     $('#rusure').foundation('reveal', 'close');
-    localStorage.setItem("peramid-level", 2);  
+    localStorage.setItem("peramid-level", 1);  
     newNumbers();
     cleanAll(); 
   });
