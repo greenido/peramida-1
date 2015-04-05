@@ -24,6 +24,7 @@ function newNumbers() {
   };
 
   console.log("== curGameLevel: "+ curGameLevel);
+  startTime = new Date().getTime();
 }
 
 //
@@ -43,6 +44,10 @@ function cleanAll() {
 // start the party 
 //
 $( document ).ready(function() {
+  // main vars
+  startTime = new Date().getTime();
+  
+  // slides to pick levels
   $( "#slider-range-max" ).slider({
     range: "min",
     min: 1,
@@ -117,6 +122,7 @@ $( document ).ready(function() {
         });
         if (notEmptyFields > 9) {
           $(".tup").show();
+          saveAchivment();
           setTimeout(function() { 
             $(".tup").hide();
             cleanAll();
@@ -134,9 +140,24 @@ $( document ).ready(function() {
 
   $("#newgame").click(function() {
     $('#rusure').foundation('reveal', 'close');
+    localStorage.setItem("peramid-level", 2);  
     newNumbers();
     cleanAll(); 
   });
 
-  
+  //Firebase stuff - to save the progress
+  var myFirebaseRef = new Firebase("https://peramida.firebaseio.com/");
+  function saveAchivment() {
+    var endTime = new Date().getTime();
+    var cLevel = $( "#level" ).val();
+    myFirebaseRef.push({
+      user: "kids",
+      startTime: startTime,
+      endTime: endTime,
+      gameTime: (endTime - startTime)/1000,
+      level: cLevel,
+      screenSize: ( ""+screen.width + "," + screen.height )
+    });
+  }
+
 });
