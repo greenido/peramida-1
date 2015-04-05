@@ -46,6 +46,10 @@ function cleanAll() {
 $( document ).ready(function() {
   // main vars
   startTime = new Date().getTime();
+  var cUser = localStorage.getItem("peramid-user");
+  if (cUser != null && cUser != undefined) {
+    $("#username").val(cUser);
+  }
   
   // slides to pick levels
   $( "#slider-range-max" ).slider({
@@ -73,6 +77,10 @@ $( document ).ready(function() {
 
   // lets have only numners as answers
   $("input").keydown(function (e) {
+    var curId = $(this).attr('id');
+    if (curId === "username") {
+      return;
+    }
     // Allow: backspace, delete, tab, escape, enter and .
     if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
          // Allow: Ctrl+A
@@ -92,6 +100,10 @@ $( document ).ready(function() {
   $("input").on("blur", function(){
     //
     var curId = $(this).attr('id');
+    if (curId === "username") {
+      return;
+    }
+
     var curVal = Number($(this).val());
     console.log("A new answer on id: " + curId + " val:" + curVal);
     var curLevel = Number(curId.substring(1,2));
@@ -145,13 +157,17 @@ $( document ).ready(function() {
     cleanAll(); 
   });
 
+  $("#save-username").click(function() {
+    localStorage.setItem("peramid-user", $("#username").val());  
+  })
+
   //Firebase stuff - to save the progress
   var myFirebaseRef = new Firebase("https://peramida.firebaseio.com/");
   function saveAchivment() {
     var endTime = new Date().getTime();
     var cLevel = $( "#level" ).val();
     myFirebaseRef.push({
-      user: "kids",
+      user: "kids - " + $("#username").val(),
       startTime: startTime,
       endTime: endTime,
       gameTime: (endTime - startTime)/1000,
