@@ -18,7 +18,7 @@ Resources
 ToDos
 =====
 * Add subtraction / multiplication / division
-* Add the correct videos from Kahn Academy on the topics.
+* I18z.
 * Add sounds.
 * Polish the colors.
 * SW for offline usage.
