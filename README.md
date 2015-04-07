@@ -1,7 +1,7 @@
 Peramida
 ========
 
-A web app to practice elemtry math.
+A web app to practice elementary math.
 
 * Live Version: http://bit.ly/peramida
 * More details: todo - blog.
