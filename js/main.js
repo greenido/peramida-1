@@ -8,7 +8,7 @@ function newNumbers() {
     curGameLevel += 1;
     $("#glevel").text(" - " + curGameLevel);
     localStorage.setItem("peramid-level", curGameLevel ); 
-    $( "#level" ).val( curGameLevel ); //$( "#slider-range-max" ).slider( "value" )
+    $( "#level" ).val( curGameLevel ); 
     $( "#slider-range-max" ).slider( {value: curGameLevel} ) ;
     $('#s-level').attr('level', curGameLevel);
     curGameLevel = curGameLevel * 6;
@@ -145,7 +145,7 @@ $( document ).ready(function() {
       }
     }
     else {
-       $(this).css("background-color", "red");
+      $(this).css("background-color", "red");
     }
   });
 
@@ -162,12 +162,11 @@ $( document ).ready(function() {
     $(".save-user-alert").show();
     setTimeout(function() { 
       $(".save-user-alert").hide();
-      //$(".alert-box a.close").trigger("click.fndtn.alert");
     }, 1000);  
     
   })
 
-  //Firebase stuff - to save the progress
+  //Firebase stuff - to save basic info.
   var myFirebaseRef = new Firebase("https://peramida.firebaseio.com/");
   function saveAchivment() {
     var endTime = new Date().getTime();
