@@ -17,9 +17,9 @@ Resources
 
 ToDos
 =====
-* Add subtraction / multiplication / division
+* Adding subtraction / multiplication / division
 * I18z.
-* Add sounds.
+* Adding sounds.
 * Polish the colors.
 * SW for offline usage.
 
