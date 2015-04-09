@@ -38,6 +38,54 @@ function cleanAll() {
     }
   }
   $("#l4-1").val("");
+  $("#check-game").hide();
+}
+
+function checkSolution() {
+  var notEmptyFields = 0;
+  $('input').each(function() {
+    if ($(this).val() != "") {
+      notEmptyFields++;
+    }    
+  });
+  if (notEmptyFields > 9) {
+    $(".tup").show();
+    saveAchivment();
+    setTimeout(function() { 
+      $(".tup").hide();
+      cleanAll();
+      newNumbers();
+    }, 1500);  
+  } 
+  else {
+    // check again!
+    $("#check-alert").show();
+    setTimeout(function() { 
+      $("#check-alert").hide();
+    }, 3500);
+  }
+}
+
+//
+// Firebase stuff - Save basic info.
+// TODO: Later, we will use OAuth and have users, stats etc'
+//
+function saveAchivment() {
+  var myFirebaseRef = new Firebase("https://peramida.firebaseio.com/");
+  var endTime = new Date().getTime();
+  var cLevel = $( "#level" ).val();
+  var cUser  = $("#username").val();
+  if (cUser == null || cUser == undefined || cUser == "") {
+    cUser = "unKnown";
+  }
+  myFirebaseRef.push({
+    user: cUser,
+    startTime: startTime,
+    endTime: endTime,
+    gameTime: (endTime - startTime)/1000,
+    level: cLevel,
+    screenSize: ( ""+screen.width + "," + screen.height )
+  });
 }
 
 
@@ -82,6 +130,11 @@ $( document ).ready(function() {
     if (curId === "username") {
       return;
     }
+
+    if (curId === "l4-1") {
+      $("#check-game").show();
+    }
+
     // Allow: backspace, delete, tab, escape, enter and .
     if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
          // Allow: Ctrl+A
@@ -95,6 +148,10 @@ $( document ).ready(function() {
     if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
         e.preventDefault();
     }
+  });
+
+  $("#check-game").click(function() {
+    checkSolution();
   });
 
   // calculate if it's the correct answer
@@ -127,21 +184,7 @@ $( document ).ready(function() {
 
       // Are we done with this peramid?
       if (curLevel === 4) {
-        var notEmptyFields = 0;
-        $('input').each(function() {
-          if ($(this).val() != "") {
-            notEmptyFields++;
-          }    
-        });
-        if (notEmptyFields > 9) {
-          $(".tup").show();
-          saveAchivment();
-          setTimeout(function() { 
-            $(".tup").hide();
-            cleanAll();
-            newNumbers();
-          }, 1500);  
-        }    
+        checkSolution();  
       }
     }
     else {
@@ -165,24 +208,5 @@ $( document ).ready(function() {
     }, 1000);  
     
   })
-
-  //Firebase stuff - to save basic info.
-  var myFirebaseRef = new Firebase("https://peramida.firebaseio.com/");
-  function saveAchivment() {
-    var endTime = new Date().getTime();
-    var cLevel = $( "#level" ).val();
-    var cUser  = $("#username").val();
-    if (cUser == null || cUser == undefined || cUser == "") {
-      cUser = "unKnown";
-    }
-    myFirebaseRef.push({
-      user: cUser,
-      startTime: startTime,
-      endTime: endTime,
-      gameTime: (endTime - startTime)/1000,
-      level: cLevel,
-      screenSize: ( ""+screen.width + "," + screen.height )
-    });
-  }
 
 });

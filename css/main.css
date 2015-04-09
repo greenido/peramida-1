@@ -23,7 +23,10 @@ input {
 }
 
 #malert {
-   display: none;
+  display: none;   
+}
+#check-alert {
+  display: none;
 }
 
 .tup {
@@ -66,4 +69,10 @@ input {
   padding-bottom: 10px;
   position: relative;
   top: -0.3em;
+}
+
+#check-game {
+  position: relative;
+  top: 0.2em;
+  display: none;
 }
