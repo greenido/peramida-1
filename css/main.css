@@ -60,3 +60,10 @@ input {
     text-shadow: 25px 0 25px #fff, -25px 0 25px #fff, 0 40px 45px #fff, 0 -40px 45px #fff;
     transition: all .4s ease-in-out; 
  }
+
+.cur-lang {
+  border-radius: 2em;
+  padding-bottom: 10px;
+  position: relative;
+  top: -0.3em;
+}
