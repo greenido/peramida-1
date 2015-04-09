@@ -44,7 +44,8 @@ function cleanAll() {
 function checkSolution() {
   var notEmptyFields = 0;
   $('input').each(function() {
-    if ($(this).val() != "") {
+    if ($(this).val() !== "" && 
+        $(this).attr("good-answer") === "yes") {
       notEmptyFields++;
     }    
   });
@@ -181,7 +182,7 @@ $( document ).ready(function() {
       }, 1500);
 
       $(this).css("background-color", "white");
-
+      $(this).attr("good-answer", "yes");
       // Are we done with this peramid?
       if (curLevel === 4) {
         checkSolution();  
@@ -189,6 +190,7 @@ $( document ).ready(function() {
     }
     else {
       $(this).css("background-color", "red");
+      $(this).attr("good-answer", "no");
     }
   });
 
