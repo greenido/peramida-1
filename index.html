@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/introjs.css" />
 
   <script src="js/vendor/modernizr.js"></script>
 </head>
@@ -58,13 +59,17 @@
             <li>
               <a href="mailto:?Subject=Check%20This%20To%20Parctice%20Math&body=Hey!%20You%20might%20like:%20http:bit.ly/peramida" class="button">Share</a>
             </li>
+            <li class="divider"></li>
+            <li>
+              <a id="showhelp" href="#" class="button">Help</a>
+            </li>
           </ul>
 
           <ul class="left">
             <li>
               <a href="#">For:</a>
             </li>
-            <li class="has-form">
+            <li class="has-form" data-position="bottom" data-step="6" data-intro='Fill your name so you could get a report of your progress (in the future :)'>
               <div class="large-8 small-8 columns">
                 <input id="username" type="text" placeholder="Your Name"></div>
               <div class="large-4 small-4 columns">
@@ -86,13 +91,14 @@
           <a href="#" class="close">&times;</a>
         </div>
 
-        <h1> <i class="fi-heart style3"></i>
+        <h1  data-step="1" data-intro='Welcome to a new little addition game! You will need to build this step by step by adding the numbers.'> <i class="fi-heart style3"></i>
           Peramida!
           <span id="glevel"></span>
         </h1>
         <div class="row level4">
           <div class="large-2 large-offset-3 small-2 small-offset-3 columns">
-            <input id="l4-1" type="number" placeholder="?"  tabindex="10"/>
+            <input id="l4-1" type="number" placeholder="?"  tabindex="10"
+            data-position="bottom" data-step="5" data-intro='When you get here - It is game over if the answer is correct. You got to the new level!' />
           </div>
            <div class="large-1 small-1 columns">
             <a href="#" id="check-game" class="button tiny round warning" tabindex="11">בדוק</a>
@@ -103,7 +109,8 @@
 
         <div class="row level3">
           <div class="large-2 small-2 large-offset-2 small-offset-2 columns">
-            <input id="l3-1" type="number" placeholder="?" tabindex="8"/>
+            <input id="l3-1" type="number" placeholder="?" tabindex="8"
+            data-position="top" data-step="4" data-intro='Keep solving until you reach to the top.'/>
           </div>
           <div class="large-2 small-2 columns">
             <input id="l3-2" type="number" placeholder="?" tabindex="9"/>
@@ -114,7 +121,8 @@
 
         <div class="row level2">
           <div class="large-2 small-2 large-offset-1 small-offset-1 columns">
-            <input id="l2-1" type="number" placeholder="?" tabindex="5"/>
+            <input id="l2-1" type="number" placeholder="?" tabindex="5"
+            data-position="top" data-step="3" data-intro='Fill the correct answer by adding the two numbers below.'/>
           </div>
           <div class="large-2 small-2 columns">
             <input id="l2-2" type="number" placeholder="?" tabindex="6"/>
@@ -125,9 +133,10 @@
           <div class="large-2 small-2 columns">2</div>
         </div>
 
-        <div class="row level1">
+        <div class="row level1" data-position="top" data-step="2" data-intro='These andom numbers base on the current level you see at the top. You have 1-50 levels.'>
           <div class="large-2 small-2 columns">
-            <input id="l1-1" type="number" good-answer="yes" placeholder="?" tabindex="1"/>
+            <input id="l1-1" type="number" good-answer="yes" placeholder="?" tabindex="1"
+            />
           </div>
           <div class="large-2 small-2 columns">
             <input id="l1-2" type="number" good-answer="yes" placeholder="?" tabindex="2"/>
@@ -214,6 +223,7 @@
   <script src="js/foundation/foundation.slider.js"></script>
   <script src="js/foundation/foundation.alert.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/intro.js"></script>
 
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

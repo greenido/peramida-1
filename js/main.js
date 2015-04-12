@@ -100,6 +100,10 @@ $( document ).ready(function() {
   if (cUser != null && cUser != undefined) {
     $("#username").val(cUser);
   }
+  else {
+    // Let's have a quick intro for new comers
+    introJs().start();
+  }
 
   // slides to pick levels
   $( "#slider-range-max" ).slider({
@@ -194,6 +198,10 @@ $( document ).ready(function() {
     }
   });
 
+  $("#showhelp").click(function() {
+    introJs().start();
+  });
+
   $("#newgame").click(function() {
     $('#rusure').foundation('reveal', 'close');
     localStorage.setItem("peramid-level", 0);  
@@ -209,6 +217,6 @@ $( document ).ready(function() {
       $(".save-user-alert").hide();
     }, 1000);  
     
-  })
+  });
 
 });
