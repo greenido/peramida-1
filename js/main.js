@@ -103,6 +103,7 @@ $( document ).ready(function() {
   else {
     // Let's have a quick intro for new comers
     introJs().start();
+    localStorage.setItem("peramid-user", "Jack");
   }
 
   // slides to pick levels
