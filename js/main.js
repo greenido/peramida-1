@@ -220,4 +220,7 @@ $( document ).ready(function() {
     
   });
 
+  // put the user on the first answer to fill
+  $( "#l2-1" ).focus();
+
 });
