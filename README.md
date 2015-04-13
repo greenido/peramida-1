@@ -3,8 +3,9 @@ Peramida
 
 A web app to practice elementary math.
 
-* Live Version: http://greenido.github.io/peramida-1/index.html
-* More details: todo - blog.
+###Live Version
+* [English](http://greenido.github.io/peramida-1/) 
+* [Hebrew](http://greenido.github.io/peramida-1/index-he.html)
 
 Main Goal
 =========
