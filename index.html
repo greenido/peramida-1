@@ -13,7 +13,6 @@
   <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/introjs.css" />
-
   <script src="js/vendor/modernizr.js"></script>
 </head>
 <body>
@@ -212,6 +211,20 @@
     <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   </div>
 
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw1.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker 1 registration successful with scope: ', registration.scope);
+    }).catch(function(err) {
+      // registration failed :(
+      console.log('ServiceWorker 1 registration failed: ', err);
+    });
+  } else {
+    console.log("No ServiceWorker for you :(");
+  }
+  </script>
   <!-- JavaScript imports -->
   <script src="js/vendor/jquery.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
