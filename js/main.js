@@ -179,7 +179,8 @@ $( document ).ready(function() {
     var cellRightId = "#l" + (curLevel-1) + "-" + (1 + curCell );
     var cellLeft = Number($(cellLeftId).val());
     var cellRight = Number($(cellRightId).val());
-    if (curVal === cellLeft + cellRight ) {
+    if (curVal > 1 &&
+        curVal === cellLeft + cellRight ) {
       //
       $("#malert").show();
       setTimeout(function() { 
