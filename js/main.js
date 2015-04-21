@@ -179,7 +179,7 @@ $( document ).ready(function() {
     var cellRightId = "#l" + (curLevel-1) + "-" + (1 + curCell );
     var cellLeft = Number($(cellLeftId).val());
     var cellRight = Number($(cellRightId).val());
-    if (curVal > 1 &&
+    if (curLevel > 1 && 
         curVal === cellLeft + cellRight ) {
       //
       $("#malert").show();
@@ -195,8 +195,10 @@ $( document ).ready(function() {
       }
     }
     else {
-      $(this).css("background-color", "red");
-      $(this).attr("good-answer", "no");
+      if (curLevel > 1) {
+        $(this).css("background-color", "red");
+        $(this).attr("good-answer", "no");
+      }
     }
   });
 
