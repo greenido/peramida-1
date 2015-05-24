@@ -21,6 +21,7 @@ ToDos
 =====
 * Adding subtraction / multiplication / division
 * Adding sounds.
+* Timer and save the 'top' results.
 * Polish the colors.
 * SW for offline usage.
 
