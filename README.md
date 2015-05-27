@@ -9,7 +9,7 @@ A web app to practice elementary math.
 
 Main Goal
 =========
-Help kids to get better at the basic of math.
+Help kids to get better at the basic of math by playing a game!
 
 Resources
 =========
