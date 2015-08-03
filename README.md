@@ -27,3 +27,5 @@ ToDos
 (!) Please feel free to fork or open issues.
 
 
+[![Analytics](https://ga-beacon.appspot.com/UA-65622529-1/Peramida-1/main)](https://github.com/igrigorik/ga-beacon)
+

@@ -5,7 +5,13 @@ $(document).foundation();
 function newNumbers() {
   var curGameLevel = Number(localStorage.getItem("peramid-level"));
   if (curGameLevel > 0) {
-    curGameLevel += 1;
+    if ($("#keepLevel").is(':checked') ) {
+      console.log("-- keeping the level on: "+ curGameLevel);
+    }
+    else {
+      curGameLevel += 1;  
+    }
+    
     $("#glevel").text(" - " + curGameLevel);
     localStorage.setItem("peramid-level", curGameLevel ); 
     $( "#level" ).val( curGameLevel ); 
