@@ -2,13 +2,13 @@
 $(document).foundation();
 
 //
-function newNumbers() {
+function newNumbers(pushLevelUp) {
   var curGameLevel = Number(localStorage.getItem("peramid-level"));
   if (curGameLevel > 0) {
     if ($("#keepLevel").is(':checked') ) {
       console.log("-- keeping the level on: "+ curGameLevel);
     }
-    else {
+    else if (pushLevelUp) {
       curGameLevel += 1;  
     }
     
@@ -47,7 +47,7 @@ function cleanAll() {
   $("#check-game").hide();
 }
 
-function checkSolution() {
+function checkSolution(pushLevelUp) {
   var notEmptyFields = 0;
   $('input').each(function() {
     if ($(this).val() !== "" && 
@@ -57,11 +57,13 @@ function checkSolution() {
   });
   if (notEmptyFields > 9) {
     $(".tup").show();
-    saveAchivment();
+    if (pushLevelUp) {
+      saveAchivment();
+    }
     setTimeout(function() { 
       $(".tup").hide();
       cleanAll();
-      newNumbers();
+      newNumbers(pushLevelUp);
     }, 1500);  
   } 
   else {
@@ -123,7 +125,7 @@ $( document ).ready(function() {
       $( "#level" ).val( newLevel );
       if ( !isNaN(newLevel)) {
           localStorage.setItem("peramid-level", newLevel);  
-          newNumbers();
+          newNumbers(true);
           cleanAll();
         }
         else {
@@ -134,7 +136,7 @@ $( document ).ready(function() {
   $( "#level" ).val( $( "#slider-range-max" ).slider( "value" ) );
 
   // Start with random numbers at the bottom
-  newNumbers();
+  newNumbers(true);
 
   // lets have only numners as answers
   $("input").keydown(function (e) {
@@ -163,17 +165,16 @@ $( document ).ready(function() {
   });
 
   $("#check-game").click(function() {
-    checkSolution();
+    //checkSolution(false);
+    console.log("just trying");
   });
 
   // calculate if it's the correct answer
-  $("input").on("blur", function(){
-    //
+  $("input").on("blur", function() {
     var curId = $(this).attr('id');
     if (curId === "username") {
       return;
     }
-
     var curVal = Number($(this).val());
     console.log("A new answer on id: " + curId + " val:" + curVal);
     var curLevel = Number(curId.substring(1,2));
@@ -197,7 +198,7 @@ $( document ).ready(function() {
       $(this).attr("good-answer", "yes");
       // Are we done with this peramid?
       if (curLevel === 4) {
-        checkSolution();  
+        checkSolution(true);  
       }
     }
     else {
@@ -215,7 +216,7 @@ $( document ).ready(function() {
   $("#newgame").click(function() {
     $('#rusure').foundation('reveal', 'close');
     localStorage.setItem("peramid-level", 0);  
-    newNumbers();
+    newNumbers(true);
     cleanAll(); 
   });
 
