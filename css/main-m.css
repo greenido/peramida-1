@@ -57,8 +57,10 @@ input {
 .style13 {
   background: dodgerblue;
   padding: .07em .25em;
-  border-radius: 50%; }
-  .style13:hover {
+  border-radius: 50%; 
+}
+
+.style13:hover {
     color: #fff;
     text-shadow: 25px 0 25px #fff, -25px 0 25px #fff, 0 40px 45px #fff, 0 -40px 45px #fff;
     transition: all .4s ease-in-out; 
@@ -72,8 +74,6 @@ input {
 }
 
 #check-game {
-  position: relative;
-  top: 0.2em;
   display: none;
 }
 
@@ -86,4 +86,10 @@ input {
   width: 5em;
   font-size: 2em;
   height: 2em;
+}
+
+.has-form-m {
+  padding-bottom: 1em;
+  padding-top: 1em;
+  height: 4em;
 }
