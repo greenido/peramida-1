@@ -76,3 +76,11 @@ input {
   top: 0.2em;
   display: none;
 }
+
+.answer-style {
+  margin-top: 1.4em;
+}
+
+#l4-1 {
+  width: 5em;
+}

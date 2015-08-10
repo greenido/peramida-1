@@ -96,59 +96,36 @@
           <span id="glevel"></span>
         </h1>
         <div class="row level4">
-          <div class="large-2 large-offset-3 small-2 small-offset-3 columns">
-            <input id="l4-1" type="number" placeholder="?"  tabindex="10"
-            data-position="bottom" data-step="5" data-intro='When you get here - It is game over if the answer is correct. You got to the new level!' />
-          </div>
-           <div class="large-1 small-1 columns">
-            <a href="#" id="check-game" class="button tiny round warning" tabindex="11">Check</a>
-          </div>
-
-          <div class="large-2 small-2 columns">4</div>
-        </div>
-
-        <div class="row level3">
-          <div class="large-2 small-2 large-offset-2 small-offset-2 columns">
-            <input id="l3-1" type="number" placeholder="?" tabindex="8"
-            data-position="top" data-step="4" data-intro='Keep solving until you reach to the top.'/>
+          <div class="large-4 small-4 columns">
+            <span id="first-num" class="style3">10</span>
           </div>
           <div class="large-2 small-2 columns">
-            <input id="l3-2" type="number" placeholder="?" tabindex="9"/>
+            <span id="symbol" class="style3">+</span>
           </div>
-          <div class="large-2 small-2 columns">3</div>
+          <div class="large-4 small-4 columns">
+            <span id="second-num" class="style3">5</span>
+          </div>
 
         </div>
 
-        <div class="row level2">
-          <div class="large-2 small-2 large-offset-1 small-offset-1 columns">
-            <input id="l2-1" type="number" placeholder="?" tabindex="5"
-            data-position="top" data-step="3" data-intro='Fill the correct answer by adding the two numbers below.'/>
-          </div>
+        <div class="row answer level3">
           <div class="large-2 small-2 columns">
-            <input id="l2-2" type="number" placeholder="?" tabindex="6"/>
+              <span id="symbol" class="style3"> = </span>
           </div>
-          <div class="large-2 small-2 columns">
-            <input id="l2-3" type="number" placeholder="?" tabindex="7"/>
+
+          <div class="large-4 small-6 columns answer-style">
+              <input id="l4-1" type="number" placeholder="?"  tabindex="10"
+              data-position="bottom" data-step="5" data-intro='When you get here - It is game over if the answer is correct. You got to the new level!' />
           </div>
-          <div class="large-2 small-2 columns">2</div>
+
+          <div class="large-1 small-1 columns">
+              <a href="#" id="check-game" class="button tiny round warning" tabindex="11">Check</a>
+          </div>
         </div>
 
-        <div class="row level1" data-position="top" data-step="2" data-intro='These random numbers base on the current level you see at the top. You have 1-50 levels and you can control it with the slider at the bottom.'>
-          <div class="large-2 small-2 columns">
-            <input id="l1-1" type="number" good-answer="yes" placeholder="?" tabindex="1"
-            />
-          </div>
-          <div class="large-2 small-2 columns">
-            <input id="l1-2" type="number" good-answer="yes" placeholder="?" tabindex="2"/>
-          </div>
-          <div class="large-2 small-2 columns">
-            <input id="l1-3" type="number" good-answer="yes" placeholder="?" tabindex="3"/>
-          </div>
-          <div class="large-2 small-2 columns">
-            <input id="l1-4" type="number" good-answer="yes" placeholder="?" tabindex="4"/>
-          </div>
-          <div class="large-2 small-2 columns">1</div>
-        </div>
+        
+
+        
 
       </div>
     </div>
@@ -181,21 +158,21 @@
     <div class="small-10 medium-10 columns ">
       <div class="panel">
         <p>
-          <label for="amount">Level</label>
+          <span for="amount">Level</span>
           <input type="text" id="level" readonly style="border:0; color:#f6931f; font-weight:bold;"></p>
         <div id="slider-range-max"></div>
         
         <div class="checkbox">
-          <label>
+          <span>
             <input type="checkbox" id="keepLevel">  Stay on this level
-          </label>
+          </span>
         </div>
 
       </div>
     </div>
   </div>
 
-  <div id="rusure" class="reveal-modal tiny" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <div id="rusure" class="reveal-modal tiny" data-reveal aria-spanledby="modalTitle" aria-hidden="true" role="dialog">
     <h2 id="modalTitle">Hey!</h2>
     <p class="lead">
       You level will be reset.
@@ -206,17 +183,17 @@
         <a href="#" id="newgame" class="button">Yes - Let's do it!</a>
       </li>
     </ul>
-    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    <a class="close-reveal-modal" aria-span="Close">&#215;</a>
   </div>
 
-  <div id="videoModal" class="reveal-modal large" data-reveal aria-labelledby="videoModalTitle" 
+  <div id="videoModal" class="reveal-modal large" data-reveal aria-spanledby="videoModalTitle" 
       aria-hidden="true" role="dialog">
     <h2 id="videoModalTitle">How to do Addition</h2>
     <div class="flex-video widescreen vimeo">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/9FC0WT186aY" frameborder="0" allowfullscreen></iframe>
     </div>
     For more: <a href="https://www.khanacademy.org/math/early-math/cc-early-math-add-sub-topic" target="_blank">KhanAcademy.org</a> 
-    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    <a class="close-reveal-modal" aria-span="Close">&#215;</a>
   </div>
 
   <!-- JavaScript imports -->
