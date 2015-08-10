@@ -27,7 +27,7 @@ function newNumbers(pushLevelUp) {
   }
   for (var i = 1; i < 3; i++) {
     var tmpNo = Math.floor((Math.random() * curGameLevel) + 1);
-    $("#l1-"+i).html(tmpNo);
+    $("#l3-"+i).html(tmpNo);
   };
 
   console.log("== curGameLevel: "+ curGameLevel);
@@ -36,13 +36,6 @@ function newNumbers(pushLevelUp) {
 
 //
 function cleanAll() {
- for (var i = 1; i < 4; i++) {
-    var tmpNo = Math.floor((Math.random() * 10) + 1);
-    $("#l2-"+i).val("");
-    if (i < 3) {
-      $("#l3-"+i).val("");
-    }
-  }
   $("#l4-1").val("");
   $("#check-game").hide();
 }
@@ -55,7 +48,7 @@ function checkSolution(pushLevelUp) {
       notEmptyFields++;
     }    
   });
-  if (notEmptyFields > 9) {
+  if (notEmptyFields > 0) {
     $(".tup").show();
     if (pushLevelUp) {
       saveAchivment();
@@ -80,7 +73,7 @@ function checkSolution(pushLevelUp) {
 // TODO: Later, we will use OAuth and have users, stats etc'
 //
 function saveAchivment() {
-  var myFirebaseRef = new Firebase("https://peramida.firebaseio.com/");
+  var myFirebaseRef = new Firebase("https://peramida.firebaseio.com/mobile/");
   var endTime = new Date().getTime();
   var cLevel = $( "#level" ).val();
   var cUser  = $("#username").val();
@@ -111,7 +104,7 @@ $( document ).ready(function() {
   }
   else {
     // Let's have a quick intro for new comers
-    introJs().start();
+    //introJs().start();
     localStorage.setItem("peramid-user", "Jack");
   }
 
@@ -185,8 +178,8 @@ $( document ).ready(function() {
     var isCorrect = false;
     var cellLeftId  = "#l" + (curLevel-1) + "-" + curCell;
     var cellRightId = "#l" + (curLevel-1) + "-" + (1 + curCell );
-    var cellLeft = Number($(cellLeftId).val());
-    var cellRight = Number($(cellRightId).val());
+    var cellLeft = Number($(cellLeftId).html());
+    var cellRight = Number($(cellRightId).html());
     if (curLevel > 1 && 
         curVal === cellLeft + cellRight ) {
       //
@@ -230,8 +223,5 @@ $( document ).ready(function() {
     }, 1000);  
     
   });
-
-  // put the user on the first answer to fill
-  $( "#l2-1" ).focus();
 
 });
