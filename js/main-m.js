@@ -2,30 +2,6 @@
 $(document).foundation();
 
 //
-// let us switch to mobile view - ugly but works
-//
-var isMobile = {
-    Android: function() {
-        return navigator.userAgent.match(/Android/i);
-    },
-    BlackBerry: function() {
-        return navigator.userAgent.match(/BlackBerry/i);
-    },
-    iOS: function() {
-        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-    },
-    Opera: function() {
-        return navigator.userAgent.match(/Opera Mini/i);
-    },
-    Windows: function() {
-        return navigator.userAgent.match(/IEMobile/i);
-    },
-    any: function() {
-        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-    }
-};
-
-//
 function newNumbers(pushLevelUp) {
   var curGameLevel = Number(localStorage.getItem("peramid-level"));
   if (curGameLevel > 0) {
@@ -49,9 +25,9 @@ function newNumbers(pushLevelUp) {
     $( "#level" ).val( 1 );
     curGameLevel = 10;
   }
-  for (var i = 1; i < 5; i++) {
+  for (var i = 1; i < 3; i++) {
     var tmpNo = Math.floor((Math.random() * curGameLevel) + 1);
-    $("#l1-"+i).val(tmpNo);
+    $("#l1-"+i).html(tmpNo);
   };
 
   console.log("== curGameLevel: "+ curGameLevel);
@@ -126,12 +102,6 @@ function saveAchivment() {
 // start the party 
 //
 $( document ).ready(function() {
-
-  if( isMobile.any() ) {
-    console.log("We are on mobile phone");
-    // switch to index-m layout 
-    window.location.href = "index-m.html";
-  }
 
   // main vars
   startTime = new Date().getTime();
