@@ -104,21 +104,32 @@ function checkSolution(pushLevelUp) {
 // TODO: Later, we will use OAuth and have users, stats etc'
 //
 function saveAchivment() {
-  var myFirebaseRef = new Firebase("https://peramida.firebaseio.com/");
-  var endTime = new Date().getTime();
-  var cLevel = $( "#level" ).val();
-  var cUser  = $("#username").val();
-  if (cUser == null || cUser == undefined || cUser == "") {
-    cUser = "unKnown";
+  if (navigator.onLine) {
+    try {
+      var myFirebaseRef = new Firebase("https://peramida.firebaseio.com/");
+      var endTime = new Date().getTime();
+      var cLevel = $( "#level" ).val();
+      var cUser  = $("#username").val();
+      if (cUser == null || cUser == undefined || cUser == "") {
+        cUser = "unKnown";
+      }
+      myFirebaseRef.push({
+        user: cUser,
+        startTime: startTime,
+        endTime: endTime,
+        gameTime: (endTime - startTime)/1000,
+        level: cLevel,
+        screenSize: ( ""+screen.width + "," + screen.height )
+      });
+    }
+    catch (err) {
+      console.log("Could not log to firebase! might be that something not working with the network.");
+    }
+  } else {
+    console.log("## yep - we are working offline. No logging to firebase.");
+    // TODO: save the results locally and later sync them with firebase.
   }
-  myFirebaseRef.push({
-    user: cUser,
-    startTime: startTime,
-    endTime: endTime,
-    gameTime: (endTime - startTime)/1000,
-    level: cLevel,
-    screenSize: ( ""+screen.width + "," + screen.height )
-  });
+  
 }
 
 
