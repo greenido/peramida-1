@@ -17,6 +17,7 @@ input {
 .level3 {
    background: green;
    padding: 0.3em; 
+   vertical-align: middle;
 }
 .level4 {
    background: rgba(0, 0, 255, 0.38);
@@ -85,7 +86,7 @@ input {
 
 #l4-1 {
   width: 5em;
-  font-size: 2em;
+  font-size: 1.2em;
   height: 2em;
 }
 
