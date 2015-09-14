@@ -1,5 +1,6 @@
 h1 {
   text-align: center;
+  font-size: 150%;
 }
 input {
   text-align: center;
@@ -7,19 +8,19 @@ input {
 }
 .level1 {
    background: yellow;
-   padding: 1em; 
+   padding: 0.3em; 
 }
 .level2 {
    background: red;
-   padding: 1em; 
+   padding: 0.2em; 
 }
 .level3 {
    background: green;
-   padding: 1em; 
+   padding: 0.3em; 
 }
 .level4 {
    background: rgba(0, 0, 255, 0.38);
-   padding: 1em; 
+   padding: 0.3em; 
 }
 
 #malert {
@@ -41,7 +42,7 @@ input {
 }
 
 .style3 {
-  font-size: 3rem; 
+  font-size: 2.4rem; 
   color: #E33100;
   text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #E33100,0 0 30px #E33100,0 0 40px #E33100,0 0 50px #E33100,0 0 75px #E33100; 
 }
