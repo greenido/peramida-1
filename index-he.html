@@ -10,8 +10,9 @@
   <title>פרמידה</title>
   <link rel="stylesheet" href="css/foundation.css" />
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/introjs.css" />
   <style type="text/css">
     #save-username {
       margin-right: -2em;  
@@ -50,7 +51,7 @@
             <li class="divider"></li>
             <li class="">
               <a href="index.html" class="button">
-                 <img src="img/us_flag_32x24.jpg" class="cur-lang"  alt="English lang for the app">
+                 <img src="img/us_flag_32x24.jpg" class="cur-lang"  alt="English version of the Peramida app">
               </a>
             </li>
             <li class="divider"></li>
@@ -73,7 +74,7 @@
                 <a href="#" id="save-username" class="alert button expand">שמור</a>
               </div>
               <div class="large-8 small-8 columns">
-                <input id="username" type="text" placeholder="השם שלך">
+                <input id="username" type="text" placeholder="השם שלך" data-position="bottom" data-step="6" data-intro='מלא את השם כדי שנוכל לשמור את הניקוד שלך'>
               </div>
             </li>
           </ul>
@@ -90,13 +91,15 @@
           <a href="#" class="close">&times;</a>
         </div>
 
-        <h1> <i class="fi-heart style3"></i>
+        <h1 data-step="1" data-intro='שלום! יופי שהגעת למשחק שלנו שיעזור לך להשתפר בפתרון בעיות חשבון'> <i class="fi-heart style3"></i>
           פרמידה!
           <span id="glevel"></span>
         </h1>
         <div class="row level4">
           <div class="large-2 large-offset-3 small-2 small-offset-3 columns">
-            <input id="l4-1" type="number" placeholder="?"  tabindex="10"/>
+            <input id="l4-1" type="number" placeholder="?"  tabindex="10" data-position="bottom" data-step="5" 
+            data-intro='כאשר פתרת את כל התרגילים - נבדוק ונראה אם אתה יכול לעלות לשלב הבא'
+            />
           </div>
           <div class="large-1 small-1 columns">
             <a href="#" id="check-game" class="button tiny round warning" tabindex="11">בדוק</a>
@@ -106,7 +109,8 @@
 
         <div class="row level3">
           <div class="large-2 small-2 large-offset-2 small-offset-2 columns">
-            <input id="l3-1" type="number" placeholder="?" tabindex="8"/>
+            <input id="l3-1" type="number" placeholder="?" tabindex="8" data-position="top" data-step="4"
+             data-intro='המשך לפתור על סוף הפרמידה'/>
           </div>
           <div class="large-2 small-2 columns">
             <input id="l3-2" type="number" placeholder="?" tabindex="9"/>
@@ -117,7 +121,8 @@
 
         <div class="row level2">
           <div class="large-2 small-2 large-offset-1 small-offset-1 columns">
-            <input id="l2-1" type="number" placeholder="?" tabindex="5"/>
+            <input id="l2-1" type="number" placeholder="?" tabindex="5" data-position="top" data-step="3" 
+            data-intro='פתור את התרגיל על ידי חיבור המספרים'/>
           </div>
           <div class="large-2 small-2 columns">
             <input id="l2-2" type="number" placeholder="?" tabindex="6"/>
@@ -128,7 +133,8 @@
           <div class="large-2 small-2 columns">2</div>
         </div>
 
-        <div class="row level1">
+        <div class="row level1" data-position="top" data-step="2" 
+        data-intro='אלו מספרים אקרעיים מהם אפשר להתחיל לפתור את התרגילים. יש רמות שונות מ1 ועד 50. בהצלחה!'>
           <div class="large-2 small-2 columns">
             <input id="l1-1" type="number" good-answer="yes" placeholder="?" tabindex="1"/>
           </div>
@@ -223,7 +229,26 @@
   <script src="js/foundation/foundation.topbar.js"></script>
   <script src="js/foundation/foundation.slider.js"></script>
   <script src="js/foundation/foundation.alert.js"></script>
+  <script src="js/intro.js"></script>
   <script src="js/main.js"></script>
+
+  <!-- OFFLINE! v0.5 -->
+  <script src="upup.min.js"></script>
+  <script>
+    // Let's make sure we are on https
+    if (("greenido.github.io" == window.location.host) && (window.location.protocol != "https:")) {
+      window.location.protocol = "https";
+    }
+    UpUp.start({
+      'content-url': 'index-he.html',
+      'assets': ['css/main.css', 'css/foundation.css' , 'css/introjs.css', 'img/pyramid-small.png',
+      'js/vendor/jquery.js', 'js/foundation.min.js', 'js/vendor/jquery-ui_1.11.4.js', 'upup.min.js',
+      'js/vendor/modernizr.js', 'js/foundation/foundation.topbar.js', 'js/foundation/foundation.slider.js', 
+      'js/foundation/foundation.alert.js', 'js/main.js', 'js/intro.js', 
+      'img/il_flag_32x24.jpg', 'img/us_flag_32x24.jpg', 'img/t-up.gif', 'img/pyramid-small.png']
+    });
+  </script>
+
 
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
