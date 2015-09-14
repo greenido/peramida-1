@@ -25,7 +25,8 @@ function newNumbers(pushLevelUp) {
     $( "#level" ).val( 1 );
     curGameLevel = 10;
   }
-  for (var i = 1; i < 3; i++) {
+  for (var i = 1; i
+< 3; i++) {
     var tmpNo = Math.floor((Math.random() * curGameLevel) + 1);
     $("#l3-"+i).html(tmpNo);
   };
@@ -48,7 +49,8 @@ function checkSolution(pushLevelUp) {
       notEmptyFields++;
     }    
   });
-  if (notEmptyFields > 0) {
+  if (notEmptyFields >
+  0) {
     $(".tup").show();
     if (pushLevelUp) {
       saveAchivment();
@@ -127,12 +129,19 @@ $( document ).ready(function() {
         }
     }
   });
+
   $( "#level" ).val( $( "#slider-range-max" ).slider( "value" ) );
 
   // Start with random numbers at the bottom
   newNumbers(true);
+  });
 
-  // lets have only numners as answers
+$(document).on(function() {
+  $("#l4-1").focus();
+})
+
+
+  // lets have only numbers as answers
   $("input").keydown(function (e) {
     var curId = $(this).attr('id');
     if (curId === "username") {
@@ -148,12 +157,16 @@ $( document ).ready(function() {
          // Allow: Ctrl+A
         (e.keyCode == 65 && e.ctrlKey === true) || 
          // Allow: home, end, left, right, down, up
-        (e.keyCode >= 35 && e.keyCode <= 40)) {
+        (e.keyCode >= 35 && e.keyCode
+  <= 40)) {
              // let it happen, don't do anything
              return;
     }
     // Ensure that it is a number and stop the keypress
-    if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+    if ((e.shiftKey || (e.keyCode < 48 || e.keyCode >
+    57)) && (e.keyCode
+    < 96 || e.keyCode >
+      105)) {
         e.preventDefault();
     }
   });
@@ -223,5 +236,3 @@ $( document ).ready(function() {
     }, 1000);  
     
   });
-
-});
